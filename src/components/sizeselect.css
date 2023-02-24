@@ -1,0 +1,58 @@
+.size-select-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.size-select-title{
+    font-size: 14px;;
+    font-weight: 600;
+    display: flex;
+}
+.size-select-choices {
+    display: flex;
+}
+.size-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    border-radius: 0px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.size-option:hover {
+    border-color: #999;
+}
+.selected {
+    border: 2px solid black;
+}
+
+.size-option input[type="radio"] {
+    display: none;
+}
+
+
+/*
+
+
+.size-option input[type="radio"]:checked + label {
+    border-color: #111;
+    background-color: #333;
+    color: #fff;
+}
+
+
+.size-option input[type="radio"]:checked + .size-option {
+    border: 15px solid red;
+}
+
+*/
+

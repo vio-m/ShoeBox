@@ -1,0 +1,113 @@
+.navbar-container {
+    height: 60px;
+    margin-bottom: 40px;
+}
+.navbar-wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+    /*   LEFT   */
+
+
+.navbar-left {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+.logo {
+    color: rgba(56, 4, 4, 0.911);
+    font-size: 24px;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+    /*   CENTER   */
+
+
+.navbar-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchbar {
+    background-color: inherit;
+    width: 100%;
+    min-width: 80px;
+    border: 0.5px solid lightgray;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.searchbar form {
+    width: 100%;
+}
+.searchbar input {
+    width: 90%;
+    padding: 5px 0px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+.searchbar svg {
+    cursor: pointer;
+}
+
+
+    /*   RIGHT   */
+
+
+.navbar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.links {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 3rem;
+}
+.links a {
+    text-decoration: none;
+    color: #333;
+}
+#logout-btn {
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+    color: #333;
+    font-size: 16px;
+}
+
+
+/*
+.navbar {
+    width: 1005;
+    height: 80px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom:3px solid rgba(124, 13, 13, 0.911);
+}
+
+
+
+*/
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+.wishlist-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+.wishItem-container {
+    width: 700px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    margin: 30px;
+}
+.wishItem-image {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+.wishItem-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; 
+}
+.wishItem-description {
+    height: 100%;
+    width: 100%;
+    flex: 2;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+}
+.wishItem-title {
+    padding: 10px;
+    font-weight: 900;
+}
+.wishItem-price {
+}
+.wishItem-buttons {
+    width: 100%;
+    display: flex;
+}
+.wishItem-buttons button {
+    flex:1;
+    padding: 10px 30px;
+    background-color: inherit;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.wishItem-buttons button:hover {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+}
+#home-btn {
+    margin-top: 5rem;
+    padding: 10px 30px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: sticky;
+    bottom: 2%;
+    left: 2%;
+}
+#home-btn:hover {
+    background-color: black;
+}

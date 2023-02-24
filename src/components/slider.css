@@ -1,0 +1,105 @@
+.slider-container {
+    height: 65vh;
+    padding: 20px;    
+    position:relative;
+    display: flex;
+    flex-direction: column;
+}
+.slider-arrow {
+    width: 80px;
+    height: 160px;
+    background-color: transparent;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0.4;
+    z-index: 2;
+}
+.slider-arrow:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+.slider-arrow svg {
+    font-size: 46px;
+}
+.left-slider {
+    left: 30px;
+}
+.right-slider {
+    right: 30px;
+}
+.slider-title {
+    border-top: 3px solid #999;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+/* wrapper slider slide in .js 
+
+.wrapper {
+    border: 1px solid green;
+    width: 100%;
+    overflow: hidden;
+}
+.sliderRRR {
+    border: 1px solid lightgreen;
+    display: flex;
+    transition: transform 1s ease;
+}
+.slideeeee {
+    border: 0.5px solid #999;
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+}
+*/
+
+.slider-image-container {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+.slider-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.slider-info-container {
+    flex: 2;
+    padding: 50px;
+}
+.slider-announcement {
+    font-size: 70px;
+}
+.slider-fullprice {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin: 50px 0px;
+    text-decoration: line-through;
+}
+.slider-discountedprice {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin: 50px 0px;
+}
+.slider-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+}
+.slider-button:hover {
+    background-color: black;
+}
+

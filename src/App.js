@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Navbar } from "./components/navbar";
+import { Shop } from './pages/shop/shop'
+import { Login } from "./pages/auth/loginPage";
+import { Register } from "./pages/auth/registerPage";
+import { Detail } from './pages/detail/detail'
+import { CategoryPage } from './pages/categories/categorypage'
+import { BrandsPage } from './pages/brands/brandspage'
+import { Cart } from './pages/cart/cart'
+import { WishList } from './pages/wish/wishlist';
+import { ShopContextProvider } from './context/shopContext';
+import { DataContextProvider } from './context/dataContext';
+import { AuthProvider } from "./context/AuthContext";
+import { Checkout } from './pages/checkout/checkout';
+import { Order } from './pages/order/order';
+import { Announcement } from './components/announcement';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+        <DataContextProvider>                
+        <ShopContextProvider>
+        <Router>
+            <AuthProvider>
+            <Announcement />
+            <Navbar />
+                <Routes>
+                    <Route path="/" element={<Shop />}/>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/detail/:id" element={<Detail />}/>
+                    <Route path="/category/:id" element={<CategoryPage />}/>
+                    <Route path="/brand/:id" element={<BrandsPage />}/>
+                    <Route path="/cart" element={<Cart />}/>
+                    <Route path="/wishlist" element={<WishList />}/>
+                    <Route path="/checkout" element={<Checkout />}/>
+                    <Route path="/order/:id" element={<Order />}/>
+                </Routes>
+            </AuthProvider>
+        </Router>
+        </ShopContextProvider>
+        </DataContextProvider>
+        </div>
+    );
 }
 
 export default App;

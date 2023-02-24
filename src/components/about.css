@@ -1,0 +1,16 @@
+.about-container {
+    font-size: 14px;
+    color: #777;
+    margin-top: 40px;
+    padding: 20px;
+}
+.about-title {
+    border-top: 1px solid #777;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.about-content {
+    padding-top: 40px;
+}
+
+

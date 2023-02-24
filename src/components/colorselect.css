@@ -1,0 +1,61 @@
+.color-select-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.color-select-title {
+    font-size: 14px;;
+    font-weight: 600;
+    display: flex;
+}
+.color-select-choices {
+    display: flex;
+}
+.color-select-container label {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.color-select-container input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked + .color-option {
+    box-shadow: 0 0 0 2px #111;
+  }
+.color-option {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 4px solid white;
+    cursor: pointer;
+}
+.color-option:hover {
+    width: 20px;
+    height: 20px;
+    border: 5px solid white;
+}
+
+.color-option.red {
+    background-color: #ff9aa2;
+    box-shadow: 0 0 0 2px #ccc;
+}
+
+.color-option.blue {
+    background-color: #daeaf6;
+    box-shadow: 0 0 0 2px #ccc;
+}
+
+.color-option.green {
+    background-color: #7ec4cf;
+    box-shadow: 0 0 0 2px #ccc;
+}
+.color-option.purple {
+    background-color: #957dad;
+    box-shadow: 0 0 0 2px #ccc;
+}
+.color-option.orange {
+    background-color: #f68c70;
+    box-shadow: 0 0 0 2px #ccc;
+}

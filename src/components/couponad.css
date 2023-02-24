@@ -1,0 +1,21 @@
+.couponad-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    height: 160px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.couponad-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.couponad-text {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+}

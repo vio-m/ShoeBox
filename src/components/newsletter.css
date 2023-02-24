@@ -1,0 +1,40 @@
+.newsletter-container {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.newsletter-title {
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.newsletter-form {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border: 1px solid #333;
+}
+.newsletter-input {
+    flex: 2;
+    border: none;
+    outline: none;
+}
+.newsletter-button {
+    flex: 1;
+    border: none;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.newsletter-button:hover {
+    background-color: black;
+
+}
+

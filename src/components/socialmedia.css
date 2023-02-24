@@ -1,0 +1,23 @@
+.socialmedia-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.socialmedia-title {
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 20px 10px;
+    text-align: center;
+}
+.socialmedia-icon-container {
+    display: flex;
+}
+.socialmedia-icon {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.socialmedia-icon svg {
+    font-size: 36px;
+}

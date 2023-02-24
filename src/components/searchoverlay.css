@@ -1,0 +1,82 @@
+.searchoverlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /**/z-index: 3;
+}
+.searchoverlay-container {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    gap: 2rem;
+}
+.searchoverlay-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+}
+.searchitem-card {
+    width: 250px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    gap: 0.5rem;
+}
+.searchitem-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.2s ease-in-out;
+}
+.searchitem-name {
+    font-size: 18px;
+}
+.searchitem-price {
+    font-size: 14px;
+    font-weight: 900;
+    padding: 5px;
+}
+.searchitem-card a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 40px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+}
+.searchitem-card:hover {
+    cursor: pointer;
+}
+.searchitem-card:hover a {
+    opacity: 1;
+}
+.searchitem-card:hover img {
+    opacity: 0.3;
+}
