@@ -1,10 +1,9 @@
 import './shop.css';
 import yellow from '../../media/yellow.jpg';
-import banner from '../../media/banner.webp';
+import loved from '../../media/loved.jpg';
 import { useState, useEffect, useContext } from 'react'
 import UserInfo from "../../components/userInfo";
 import AuthContext from "../../context/AuthContext";
-import { ShopContext } from '../../context/shopContext'
 import { DataContext } from "../../context/dataContext";
 import { Slider } from '../../components/slider';
 import { Categories } from '../../components/categories';
@@ -25,6 +24,17 @@ export const Shop = () => {
     const [error, setError] = useState(null);
     const [showOverlay, setShowOverlay] = useState(false);
     const [overlayId, setOverlayId] = useState()
+    const ADVERT = ['Put your best foot forward. Buy now!',
+                    'Make a statement with fashion-forward footwear.',
+                    'Step into fashion with our trendy shoes.',
+                    'Shoe-lovers unite! Shop our latest collection.',
+                    'Put some sass in your step with our shoes.']
+    const [randomAdvert, setRandomAdvert] = useState("Get 10% off with your coupons...");
+
+    const changeAd = () => {
+        const randomIndex = Math.floor(Math.random() * ADVERT.length);
+        setRandomAdvert(ADVERT[randomIndex]);
+    };
 
     const toggleOverlay = (newState) => {
         setShowOverlay(!showOverlay);
@@ -40,6 +50,7 @@ export const Shop = () => {
             setCategories(data.categories)
             setBrands(data.brands)
         }
+        changeAd()
     }, [data]);
 
 
@@ -52,10 +63,10 @@ export const Shop = () => {
 
                 { products && <>
                     <Slider products={products} onStateUpdate={toggleOverlay} onSendId={handleChildId}/>
-                    <CouponAd image={yellow}/>
+                    <CouponAd image={yellow} text={randomAdvert} />
                     <Categories categories={categories}/>
                     <Brands brands={brands}/>
-                    <CouponAd image={banner}/>
+                    <CouponAd image={loved}/>
                     
                 </>}
                 { showOverlay && <Overlay overlayId={overlayId} onStateUpdate={toggleOverlay} /> }

@@ -13,9 +13,6 @@ import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 
 export const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext);
-    const LOGO = ['FootSteps','ShoeHub','SoleSearch','StepUp','Shoe Box',
-    'WalkInStyle','ShoeSational','SoleMate','FootPrints','ShoeFrenzy']
-    const [randomLogo, setRandomLogo] = useState("Shoozee");
     const [results, setResults] = useState(null)
     const [searchQuery, setSearchQuery] = useState('');
     const [searchOverlay, setSearchOverlay] = useState(false);
@@ -26,11 +23,6 @@ export const Navbar = () => {
     const items = Object.entries(cartItems).map(
         ([key, value], index) => sum+=value
     )
-
-    const changeLogo = () => {
-        const randomIndex = Math.floor(Math.random() * LOGO.length);
-        setRandomLogo(LOGO[randomIndex]);
-    };
 
     const toggleSearchOverlay = (newState) => {
         setSearchOverlay(!searchOverlay);
@@ -46,7 +38,7 @@ export const Navbar = () => {
             <div className='navbar-container'>
                 <div className='navbar-wrapper'>
                     <div className='navbar-left'>
-                        <Link to='/' className='logo' onClick={changeLogo}> {randomLogo} </Link>
+                        <Link to='/' className='logo'> Shoe Box </Link>
                     </div>
                     <div className='navbar-center'>
                         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} onStateUpdate={toggleSearchOverlay} updateResults={handleResults}/>
@@ -90,6 +82,5 @@ export const Navbar = () => {
 
 
 /*
-<Link to='/'><AttachMoneyOutlinedIcon/></Link>
 
 */

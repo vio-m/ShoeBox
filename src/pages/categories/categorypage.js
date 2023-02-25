@@ -2,6 +2,7 @@ import './categorypage.css'
 import { DataContext } from "../../context/dataContext";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import Overlay from '../../components/overlay';
 
 
@@ -14,7 +15,6 @@ export const CategoryPage = (props) => {
     const [products, setProducts] = useState(null)
     const [showOverlay, setShowOverlay] = useState(false);
     const [overlayId, setOverlayId] = useState()
-
 
     const toggleOverlay = (newState) => {
         setShowOverlay(!showOverlay);
@@ -39,23 +39,25 @@ export const CategoryPage = (props) => {
     return (
         <div className='categorypage-container'>
             <div className='categorypage-header'>
-                <div className='categorypage-header-title'>{title}</div>
-                <div className='categorypage-header-description'>{description}</div>
-                <img className='categorypage-header-image' src={image}></img>
+                <div className='brandspage-header-title' >All {title}</div>
+                <img className='brandspage-header-image' src={image}></img>
             </div>
+
             <div className='categorypage-content'>
                 {products && products.map((item)=>
-                    <div className='product-box' key={item.id}>
-                        <img className='product-image' src={item.image} />
-                        <div className='product-info'>
-                            <div className='product-name'>{item.name}</div>
-                            <div className='product-price'> only ${item.price}</div>
-                            <button onClick={()=> {toggleOverlay(); handleChildId(item.id)}} className='product-button'>Quick View</button>
+                    <div className='categorypage-product-box' key={item.id}>
+                        <img className='categorypage-product-image' src={item.image} />
+                        <div className='categorypage-product-info'>
+                            <div className='categorypage-product-brand'>{item.brand}</div>
+                            <div className='categorypage-product-name'>{item.name}</div>
+                            <div className='categorypage-product-price'> only ${item.price}</div>
+                            <button onClick={()=> {toggleOverlay(); handleChildId(item.id)}} className='categorypage-product-button'> + Quick View</button>
                         </div>
                     </div>
                 )}
             </div>
             { showOverlay && <Overlay overlayId={overlayId} onStateUpdate={toggleOverlay} /> }
+            
         </div>
     )
 }

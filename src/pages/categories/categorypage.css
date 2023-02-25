@@ -1,40 +1,82 @@
 .categorypage-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* header */
-
-.categorypage-header {
     position: relative;
-    height: 140px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding: 20px;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
-.categorypage-header-title {
-    position: absolute;
-    bottom: 60px;
-    left: 200px;
-    color: white;
-    font-size: 24px;
-}
-.categorypage-header-description {
-    position: absolute;
-    bottom: 40px;
-    left: 200px;
-    color: white;
+.categorypage-header {
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .categorypage-header-image {
-    height: 100%;
+    height: 160px;
     object-fit: cover;
 }
+.categorypage-header-title {
+    cursor: pointer;
+    padding: 10px 0px;
+}
 
-/* content */
+/*  BOTTOM */
 
 .categorypage-content {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
+.categorypage-product-box {
+    height: 400px;
+    width: 200px;
+}
+.categorypage-product-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+.categorypage-product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;    
+}
+.categorypage-product-brand {
+    padding: 10px;
+    font-size: 12px;
+}
+.categorypage-product-name {
+    padding: 10px;
+    font-size: 12px;
+}
+.categorypage-product-price {
+    padding: 10px;
+    font-weight: 900;
+}
+.categorypage-product-button {
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.categorypage-product-box:hover button {
+    background-color: #333;
+    color: white;
+}
+
+

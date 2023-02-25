@@ -48,9 +48,7 @@ export const BrandsPage = (props) => {
             <div className='brandspage-header'>
                 <div className='brandspage-header-title' onClick={handleClick}>All {title}</div>
                 <img className='brandspage-header-image' src={image}></img>
-                
                 {isVisible && <div className='brandspage-header-description'>{description}</div>}
-                
             </div>
             <div className='brandspage-content'>
                 {products && products.map((item)=>
