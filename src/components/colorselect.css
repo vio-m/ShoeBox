@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
 }
-.color-select-title {
+.color-select-title{
     font-size: 14px;;
     font-weight: 600;
     display: flex;
@@ -12,50 +13,51 @@
 .color-select-choices {
     display: flex;
 }
-.color-select-container label {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-.color-select-container input[type="radio"] {
-    display: none;
-}
-input[type="radio"]:checked + .color-option {
-    box-shadow: 0 0 0 2px #111;
-  }
 .color-option {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
     border-radius: 50%;
-    border: 4px solid white;
+    border: 2px solid #ccc;
     cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease-in-out;
 }
 .color-option:hover {
-    width: 20px;
-    height: 20px;
-    border: 5px solid white;
+    border-color: #999;
+}
+.selected {
+    border: 2px solid black;
+}
+.color-option input[type="radio"] {
+    display: none;
 }
 
-.color-option.red {
-    background-color: #ff9aa2;
-    box-shadow: 0 0 0 2px #ccc;
+
+/*  COLORS  */
+
+
+.WHITE {
+    background-color: white;
+}
+.TAN {
+    background-color: tan;
+}
+.RED {
+    background-color: red;
+}
+.BROWN {
+    background-color: brown;
+}
+.BLACK {
+    background-color: black;
 }
 
-.color-option.blue {
-    background-color: #daeaf6;
-    box-shadow: 0 0 0 2px #ccc;
-}
 
-.color-option.green {
-    background-color: #7ec4cf;
-    box-shadow: 0 0 0 2px #ccc;
-}
-.color-option.purple {
-    background-color: #957dad;
-    box-shadow: 0 0 0 2px #ccc;
-}
-.color-option.orange {
-    background-color: #f68c70;
-    box-shadow: 0 0 0 2px #ccc;
-}
+/*
+
+*/

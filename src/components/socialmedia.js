@@ -1,4 +1,5 @@
 import './socialmedia.css'
+import { Link } from 'react-router-dom'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -11,16 +12,16 @@ export default function Socialmedia() {
         <div className='socialmedia-title'>FOLLOW US:</div>
         <div className='socialmedia-icon-container'>
             <div className='socialmedia-icon'>
-                <FacebookIcon size='large'/>
+                <a href='https://www.facebook.com/facebook' target="_blank"><FacebookIcon  size='large'/></a>
             </div>
             <div className='socialmedia-icon'>
-                <InstagramIcon />
+                <a href='https://www.instagram.com/instagram/' target="_blank"><InstagramIcon /></a>
             </div>
             <div className='socialmedia-icon'>
-                < TwitterIcon/>
+                <a href='https://twitter.com/twitter/' target="_blank"><TwitterIcon /></a>
             </div>
             <div className='socialmedia-icon'>
-                < PinterestIcon/>
+                <a href='https://www.pinterest.com/pinterest/' target="_blank">< PinterestIcon/></a>
             </div>
         </div>
     </div>

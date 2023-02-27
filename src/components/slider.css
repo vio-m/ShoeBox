@@ -43,8 +43,10 @@
     text-align: center;
 }
 
+/* LEFT */
+
 .slider-image-container {
-    flex: 2;
+    flex: 1;
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -54,9 +56,13 @@
     height: auto;
     object-fit: cover;
 }
+
+/* RIGHT */
+
 .slider-info-container {
     flex: 1;
     padding: 50px;
+    background-color: white;
 }
 .slider-announcement {
     font-size: 70px;

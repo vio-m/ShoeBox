@@ -11,8 +11,8 @@ export const Categories = ({categories}) => {
                     <div className='category-box' key={item.id}>
                         <img className="category-image" src={ item.image }></img>
                         <div className='category-info'>
-                            <div className="category-name">{ item.name }</div>
-                            <Link to={`/category/${item.id}`} className='category-button'>SHOP NOW</Link>
+                            
+                            <Link to={`/category/${item.id}`} className='category-button'>{ item.category }</Link>
                             
                         </div>
                     </div>
@@ -23,10 +23,5 @@ export const Categories = ({categories}) => {
 }
 
 /*
-
-
-<div className="category-description">{ item.description }</div>
-
-<button className="category-button">SHOP NOW</button>
 
 */

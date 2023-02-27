@@ -20,4 +20,10 @@
 }
 .socialmedia-icon svg {
     font-size: 36px;
+    text-decoration: none;
+    color: #333;
 }
+.socialmedia-icon svg:hover {
+    color: black;
+}
+

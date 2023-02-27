@@ -1,15 +1,11 @@
 import './sizeselect.css'
 import { useState } from "react";
 
-export function SizeSelect({sizes}) {
-    //const {sizes} = props.sizes
-    //console.log("sizes: ", sizes)
-    const [selectedSize, setSelectedSize] = useState(sizes[0]);//
-    //console.log("selsiz", selectedSize)
 
+export function SizeSelect({sizes}) {
+    const [selectedSize, setSelectedSize] = useState(sizes[0]);
     const handleSizeChange = (event) => {
         setSelectedSize(event.target.value);
-        //console.log("selected size: ", event.target.value)
     };
 
     return (

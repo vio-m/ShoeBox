@@ -55,7 +55,6 @@ export const BrandsPage = (props) => {
                     <div className='brandspage-product-box' key={item.id}>
                         <img className='brandspage-product-image' src={item.image} />
                         <div className='brandspage-product-info'>
-                            <div className='brandspage-product-category'>{item.category}</div>
                             <div className='brandspage-product-name'>{item.name}</div>
                             <div className='brandspage-product-price'> only ${item.price}</div>
                             <button onClick={()=> {toggleOverlay(); handleChildId(item.id)}} className='brandspage-product-button'> + Quick View</button>

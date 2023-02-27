@@ -34,6 +34,7 @@
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.5rem;
 }
 .categorypage-product-box {
@@ -50,10 +51,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;    
-}
-.categorypage-product-brand {
-    padding: 10px;
-    font-size: 12px;
 }
 .categorypage-product-name {
     padding: 10px;

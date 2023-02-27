@@ -94,17 +94,5 @@ export const ShopContextProvider = (props) => {
 
 /*
 
-    function getDefaultCart(){
-        let cart = {};
-        if (products) {
-            for(const[key, value] of Object.entries(products)) {
-                cart[value.id] = 0
-            }
-        }
-        //console.log("empty cart: ", cart)
-        return cart;
-    };
-    const [cartItems, setCartItems] = useState(getDefaultCart());
-
 
 */

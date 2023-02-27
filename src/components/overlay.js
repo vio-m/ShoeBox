@@ -22,9 +22,7 @@ const Overlay = (props) => {
         if (data.loading==false) {
             const temp = data.products.filter(k => k.id == id);
             setProduct(temp[0])
-            //console.log("prod", temp)
             const sale = temp[0].sale
-            //console.log("sale", sale)
             setSale(sale)
             const discount = temp[0].percent
             const disco = (temp[0].price * (1 - discount / 100)).toFixed(2);
@@ -61,7 +59,7 @@ const Overlay = (props) => {
                             )}                       
 
                             <SizeSelect sizes={product.size}/>
-                            <ColorSelect />
+                            <ColorSelect colors={product.color}/>
 
                             <div className='overlay-add-buttons'>
                                 <button className='overlay-addToCartBtn' onClick={()=> addToCart(id)}> 

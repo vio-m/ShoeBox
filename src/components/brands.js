@@ -11,8 +11,7 @@ export const Brands = ({brands}) => {
                     <div className='brand-box' key={item.id}>
                         <img className="brand-image" src={ item.image }></img>
                         <div className='brand-info'>
-                            <div className="brand-name">{ item.name }</div>
-                            <Link to={`/brand/${item.id}`} className='brand-button'>SHOP NOW</Link>
+                            <Link to={`/brand/${item.id}`} className='brand-button'>{ item.brand }</Link>
                         </div>
                     </div>
                 ))}

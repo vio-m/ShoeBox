@@ -1,58 +1,88 @@
 .checkout-container {
-
 }
-  
 .checkout-container form {
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-bottom: 5rem;
 }
-  
-
 .checkout-container input, .checkout-container select, .checkout-container textarea {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    padding: 8px;
+    font-size: 14px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 0px;
     border: 1px solid #ccc;
     margin-bottom: 20px;
 }
-  
 
-label {
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
+
+/* PAYMENT METHOD */
+
+
+.payment-method {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    gap: 0.5rem;
+}
+.radio-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.radio-item input {
+    display: none;
+}
+.radio-item label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.radio-item label:hover {
+    background-color: black;
 }
 
-input[type="radio"] {
-    margin-right: 10px;
-}
-  
+/* BUTTON */
 
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #4caf50;
+    margin-top: 20px;
+    background-color: #333;
     color: #fff;
     font-size: 18px;
-    border-radius: 5px;
-    border: 0;
+    border-radius: 0px;
+    border: none;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
-  
+button[type="submit"]:hover {
+    background-color: black;
+}
+
+
 /* Style the loading indicator */
+
+
 .loading {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-  
+
 /* Style the success/error message */
+
+
 .message {
     text-align: center;
     margin-top: 20px;
@@ -60,3 +90,4 @@ button[type="submit"] {
     font-weight: bold;
     color: #4caf50;
 }
+

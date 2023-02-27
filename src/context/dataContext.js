@@ -2,18 +2,15 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios"
 
 
-
 export const DataContext = createContext();
 
 
 export const DataContextProvider = (props) => {
-    //const [data, setData] = useState([]);
     const [products, setProducts] = useState(null);
     const [categories, setCategories] = useState(null);
     const [brands, setBrands] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    //console.log("data from inside datacontext:", data)
     
 
     useEffect(() => {
@@ -46,7 +43,6 @@ export const DataContextProvider = (props) => {
         loading,
         error
     };
-    //console.log("datacontextvalue: ", dataContextValue)
 
 
     return (
@@ -59,15 +55,6 @@ export const DataContextProvider = (props) => {
 
 
 /*
-    useEffect(() => {
-        async function getData() {
-            await fetch('http://localhost:8000/api/product/')
-            .then((res) => res.json())
-            .then((data) => setData(data));
-        };
-        getData();
-    }, []);
-
 */
 
 
