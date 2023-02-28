@@ -16,8 +16,8 @@ export const Navbar = () => {
     const [results, setResults] = useState(null)
     const [searchQuery, setSearchQuery] = useState('');
     const [searchOverlay, setSearchOverlay] = useState(false);
-    const { cartItems } = useContext(ShopContext)  
-    const [clicked, setClicked] = useState(false);
+    const { cartItems, getTotalWishlistAmount } = useContext(ShopContext)
+    const totalAmount = getTotalWishlistAmount();  
 
     let sum = 0
     const items = Object.entries(cartItems).map(
@@ -49,7 +49,7 @@ export const Navbar = () => {
                                 <>
                                     <button id='logout-btn' onClick={logoutUser}>Logout</button>
                                     <Link to='/wishlist'>
-                                        <FavoriteBorderOutlinedIcon  style={{ color: clicked ? 'red' : 'black' }} onClick={() => setClicked(!clicked)}/>
+                                        <FavoriteBorderOutlinedIcon  style={{ color: totalAmount > 0 ? 'red' : 'black' }} />
                                     </Link>
                                 </>
                             ) : (

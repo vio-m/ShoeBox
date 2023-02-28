@@ -8,7 +8,8 @@ import { WishlistItem } from "./wishlistItem";
 
 export const WishList = () => {
     const data = useContext(DataContext);
-    const { wishItems } = useContext(ShopContext);
+    const { wishItems, getTotalWishlistAmount } = useContext(ShopContext);
+    const totalAmount = getTotalWishlistAmount();
     const navigate = useNavigate();
     const navigateHome = () => {
         navigate("/");
@@ -24,7 +25,15 @@ export const WishList = () => {
             })
             
             }
-            <button id='home-btn' onClick={() => navigateHome()}> HOME </button>
+
+            {totalAmount > 0 ? (
+                <button id='home-btn' onClick={() => navigateHome()}> Continue Shopping </button>
+            ):(
+                <div className="empty-cart">
+                    <div className="empty-cart-message"> Your Shopping Cart is Empty</div>
+                    <button className="empty-cart-button" onClick={navigateHome}>Continue Shopping</button>
+                </div>
+            )}
         </div>
     );
 };

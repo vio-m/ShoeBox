@@ -85,6 +85,7 @@
     background-color: #777;
     color: white;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 .slider-button:hover {
     background-color: black;

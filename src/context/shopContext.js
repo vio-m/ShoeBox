@@ -46,7 +46,19 @@ export const ShopContextProvider = (props) => {
         return Math.round(totalAmount * 100) / 100;
     };
 
+    const getTotalWishlistAmount = () => {
+        let totalAmount = 0;
+        for (const item in wishItems) {
+        if (wishItems[item] > 0) {
+            let itemInfo = data.products.find((product) => product.id === Number(item));
+            totalAmount += wishItems[item] * itemInfo.price;
+        }
+        }
+        return Math.round(totalAmount * 100) / 100;
+    };
+
     const addToCart = (itemId) => {
+        //console.log("cart items: ", cartItems)
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1} ));
     };
 
@@ -79,7 +91,8 @@ export const ShopContextProvider = (props) => {
         checkout,
         wishItems,
         addToWishlist,
-        removeFromWishlist
+        removeFromWishlist,
+        getTotalWishlistAmount
     };
 
     return (

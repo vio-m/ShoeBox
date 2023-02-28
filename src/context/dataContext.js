@@ -18,7 +18,7 @@ export const DataContextProvider = (props) => {
             try {
                 const products_response = await axios.get('http://localhost:8000/api/product/');
                 setProducts(products_response.data.results);
-                console.log("p", products)
+                //console.log("p", products)
                 const categories_response = await axios.get('http://localhost:8000/api/category/');
                 setCategories(categories_response.data.results);
                 const brands_response = await axios.get('http://localhost:8000/api/brand/');

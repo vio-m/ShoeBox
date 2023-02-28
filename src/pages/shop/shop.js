@@ -53,7 +53,6 @@ export const Shop = () => {
         changeAd()
     }, [data]);
 
-
     return (
         
         <div className='shop-container'>

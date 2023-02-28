@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-export const Checkout = () => {
+export const Checkout = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
     const data = location.state;
@@ -18,19 +18,12 @@ export const Checkout = () => {
         zip: '',
     });
     const [paymentMethod, setPaymentMethod] = useState('');
-    //
-    const [orderId, setOrderId] = useState(null)
-    const [orderStatus, setOrderStatus] = useState()
 
 
     useEffect(() => {
-          
         const handleOrderedItem = () => {
-            //console.log("data", data.cartItems)
             const item = Object.entries(data.cartItems).filter(([k, v], i)=> v > 0)
-            //console.log("> i.: ", item)
             setOrderedItem(JSON.stringify(item))
-            //console.log(">> o.i.: ", orderedItem)
         }
         handleOrderedItem()
     }, []);  
@@ -40,38 +33,19 @@ export const Checkout = () => {
           ...shippingAddress,
           [event.target.name]: event.target.value,
         });
-        //console.log("shipping address: ", shippingAddress)
     };
     const handlePaymentMethodChange = (event) => {
         setPaymentMethod(event.target.value);
-        //console.log("payment Method: ", paymentMethod)
     };
     
 
-
-    //
-    const navigateHome = () => {
-        navigate("/");
+    const handleResponse = (res) => {
+        props.onSendResponse(res)
     };
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-            }
-          }
-        }
-        //console.log("cookie: ", cookieValue)
-        return cookieValue;
-    }
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        //handleOrderedItem()
         const order = {
             "ordered_item": orderedItem,
             "shipping_name": shippingAddress.name,
@@ -83,23 +57,16 @@ export const Checkout = () => {
             "total_price": data.totalAmount,
             "customer": 1
         };
-        console.log("posted:", order)
         await axios.post('http://localhost:8000/api/order/', order)
-        
         .then(response => {
             setMessage(response.data.message)
-            //console.log(response)
             const oid = response.data.id
-            const status = response.data.status
-
-            //console.log("response: ", response.status)
+            handleResponse(response.data)
             navigate(`/order/${oid}`);
         })
         .catch(err => {
             console.error(err.response);
-            console.log(">>> ERROR: ", err.message);
         });
-
     };
 
 
@@ -158,7 +125,7 @@ export const Checkout = () => {
                     />
                 </div>
                 <h2>Payment Method</h2>
-                <div class="payment-method">
+                <div className="payment-method">
                     <div className={`radio-item ${paymentMethod === 'credit-card' ? "selected" : ""}`}>
                         <label htmlFor="credit-card">Credit Card</label>
                         <input
@@ -183,7 +150,6 @@ export const Checkout = () => {
                     </div>
                 </div>
                 <button type="submit">Place Order</button>
-
             </form>
         </div>
     )
@@ -191,9 +157,20 @@ export const Checkout = () => {
 
 
 /*
-
-<p>{JSON.stringify(data)}</p>
-
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+    }
 */
 
 

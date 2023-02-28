@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from "./components/navbar";
 import { Shop } from './pages/shop/shop'
@@ -18,6 +19,11 @@ import { Announcement } from './components/announcement';
 
 
 function App() {
+    const [checkoutResponse, setCheckoutResponse] = useState(null)
+    function handleCheckoutResponse(res) {
+        setCheckoutResponse(res)
+    };
+    
     return (
         <div className="App">
         <DataContextProvider>                
@@ -35,8 +41,8 @@ function App() {
                     <Route path="/brand/:id" element={<BrandsPage />}/>
                     <Route path="/cart" element={<Cart />}/>
                     <Route path="/wishlist" element={<WishList />}/>
-                    <Route path="/checkout" element={<Checkout />}/>
-                    <Route path="/order/:id" element={<Order />}/>
+                    <Route path="/checkout" element={<Checkout onSendResponse={handleCheckoutResponse}/>}/>
+                    <Route path="/order/:id" element={<Order data={checkoutResponse}/>}/>
                 </Routes>
             </AuthProvider>
         </Router>
