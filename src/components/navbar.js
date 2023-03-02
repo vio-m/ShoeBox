@@ -8,10 +8,9 @@ import { Link } from 'react-router-dom'
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 
 
-export const Navbar = () => {
+export const Navbar = (props) => {
     const { user, logoutUser } = useContext(AuthContext);
     const [results, setResults] = useState(null)
     const [searchQuery, setSearchQuery] = useState('');
@@ -23,15 +22,15 @@ export const Navbar = () => {
     const items = Object.entries(cartItems).map(
         ([key, value], index) => sum+=value
     )
-
     const toggleSearchOverlay = (newState) => {
         setSearchOverlay(!searchOverlay);
     };
-
     function handleResults(res) {
         setResults(res)
     };
-
+    function handleChildId(id) {
+        props.updateId(id)
+    };
 
     return (
         <>
@@ -75,7 +74,7 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            {searchOverlay ? <SearchOverlay onStateUpdate={toggleSearchOverlay} results={results}/> : <></>}
+            {searchOverlay ? <SearchOverlay onStateUpdate={toggleSearchOverlay} onSendId={handleChildId} results={results}/> : <></>}
         </>
     )
 }

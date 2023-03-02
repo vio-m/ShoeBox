@@ -17,6 +17,7 @@ export const Slider = (props) => {
         width: 100%;
         height: 80%;
         overflow: hidden;
+        background-color: white;
     `
     const Slider = styled.div`
         display: flex;
@@ -28,7 +29,7 @@ export const Slider = (props) => {
         min-width: 100%;
         display: flex;
         transform: translateX(-${currentIndex * 100}%);
-        transition: transform 5s ease-in-out;
+        transition: transform 2s ease-in-out;
     `
 
     const handleUpdate = () => {

@@ -19,6 +19,10 @@ import { Announcement } from './components/announcement';
 
 
 function App() {
+    const [searchId, setSearchId] = useState(null);
+    const updateId = (newId) => {
+        setSearchId(newId);
+    };
     const [checkoutResponse, setCheckoutResponse] = useState(null)
     function handleCheckoutResponse(res) {
         setCheckoutResponse(res)
@@ -31,9 +35,9 @@ function App() {
         <Router>
             <AuthProvider>
             <Announcement />
-            <Navbar />
+            <Navbar updateId={updateId}/>
                 <Routes>
-                    <Route path="/" element={<Shop />}/>
+                    <Route path="/" element={<Shop searchId={searchId}/>}/>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/detail/:id" element={<Detail />}/>

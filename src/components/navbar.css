@@ -76,7 +76,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    gap: 3rem;
+    gap: 1rem;
 }
 .links a {
     text-decoration: none;

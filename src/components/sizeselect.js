@@ -6,8 +6,6 @@ export function SizeSelect({sizes}) {
     const [selectedSize, setSelectedSize] = useState(sizes[0]);
     const handleSizeChange = (event) => {
         setSelectedSize(event.target.value);
-        console.log("sizes: ", sizes)
-        console.log("selectedSize: ", selectedSize)
     };
 
     return (

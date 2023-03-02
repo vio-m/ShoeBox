@@ -14,7 +14,7 @@ import { CouponAd } from '../../components/couponad';
 import Overlay from '../../components/overlay';
 
 
-export const Shop = () => {
+export const Shop = ({searchId}) => {
     const data = useContext(DataContext);
     const { user } = useContext(AuthContext);
     const [products, setProducts] = useState(null);
@@ -35,13 +35,20 @@ export const Shop = () => {
         const randomIndex = Math.floor(Math.random() * ADVERT.length);
         setRandomAdvert(ADVERT[randomIndex]);
     };
-
     const toggleOverlay = (newState) => {
         setShowOverlay(!showOverlay);
     };
-
     function handleChildId(id) {
         setOverlayId(id)
+    };
+    function setNull() {
+        setOverlayId(null)
+    };
+    function handleParentId(searchId) {
+        //console.log("function: ", searchId, overlayId)
+        if (searchId != null || searchId != undefined) {
+            setOverlayId(searchId)
+            toggleOverlay()}
     };
 
     useEffect(() => {
@@ -51,6 +58,8 @@ export const Shop = () => {
             setBrands(data.brands)
         }
         changeAd()
+        console.log("useEffect")
+        handleParentId(searchId)
     }, [data]);
 
     return (
@@ -68,7 +77,7 @@ export const Shop = () => {
                     <CouponAd image={loved}/>
                     
                 </>}
-                { showOverlay && <Overlay overlayId={overlayId} onStateUpdate={toggleOverlay} /> }
+                { showOverlay && <Overlay overlayId={overlayId} onStateUpdate={toggleOverlay} setNull={setNull}/> }
                 
             </div>
 
@@ -82,133 +91,5 @@ export const Shop = () => {
 
 
 /*
-
-<Products products={products} onStateUpdate={toggleOverlay} onSendId={handleChildId}/>
--------------------------------------
-    async function getData() {
-        try {
-            const products_response = await axios.get('http://localhost:8000/api/product/');
-            setProducts(products_response.data.results);
-            const categories_response = await axios.get('http://localhost:8000/api/category/');
-            setCategories(categories_response.data.results);
-            setError(null);
-        } catch (err) {
-            setError(err.message);
-            setProducts(null);
-            setCategories(null);
-        } finally {
-            setLoading(false);
-        }
-    };
-    getData();
-
-
-----------------------------------
-
-<button onClick={() => setShowOverlay(!showOverlay)}>Overlay</button>
-
----------------------------------
-
-
-    function showCategory(e) {
-        let catId = e.target.id
-        setCategory(catId)
-        let cat = product.filter((val) => val.category===catId);
-        setFilteredResults(cat);
-    }
-    function changeHeight(){
-        var element = document.getElementById("scroll");
-        element.style.height = "5px";
-        element.style.visibility = "hidden";
-    }
-    function resetHeight(){
-        setFilteredResults(null)
-        var element = document.getElementById("scroll");
-        element.style.height = "100%";
-        element.style.visibility = "visible";
-    }
------------------------
-
-    {filteredResults ? (
-
-            <div className='shop'>
-            <div className='shopTitle'>
-                <div onClick={resetHeight}><ArrowSquareLeft size={32} /></div> 
-                <div> {category} </div> 
-            </div>
-
-            <div className='products-container'>
-                {filteredResults.map((product)=> (
-                <Link to={`/detail/${ product.id }`}>
-                    
-                    <Product data={product}/>
-                    
-                </Link>
-                ))}
-            </div>
-            </div>
-
-    ):(<></>)}  
---------------------
-
-    if (data !== null) {
-        let unique_category = [...new Set(data.map(item => item.category))];
-        console.log("unique_category: ", unique_category)
-        setCategory(unique_category);
-    }
-
---------------------
-
-    const headers = {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS, GET, POST, PUT, DELETE'
-    }
-
----------------------    
-
-
-<div id="scroll" className='categories-container'>
-        {category && category.map((cat)=> (
-            <div   className='category-box' onClick={(e) => (showCategory(e), changeHeight())}>
-                <img id={cat.category} className='category-image' src={cat.image} />
-                <div className='category-title'>{cat.category}</div>
-            </div>
-        ))}
-</div>
-
------------------------
-
-
-   useEffect(() => {
-        const getData = async () => {
-          try {
-            const response = await fetch(
-              'http://localhost:8000/api/product/',
-                method: 'GET',    
-                withCredentials: true,    
-                crossorigin: true,    
-                mode: 'no-cors',
-            );
-            if (!response.ok) {
-              throw new Error(
-                `This is an HTTP error: The status is ${response.status}`
-              );
-            }
-            let actualData = await response.json();
-            setData(actualData);
-            console.log("data:", data)
-            setError(null);
-          } catch(err) {
-            setError(err.message);
-            setData(null);
-          } finally {
-            setLoading(false);
-          }  
-        }
-        getData()
-        console.log("data:", data)
-      }, [])
-
-
 
 */

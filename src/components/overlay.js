@@ -21,17 +21,20 @@ const Overlay = (props) => {
     useEffect(() => {
         if (data.loading==false) {
             const temp = data.products.filter(k => k.id == id);
-            setProduct(temp[0])
-            const sale = temp[0].sale
-            setSale(sale)
-            const discount = temp[0].percent
-            const disco = (temp[0].price * (1 - discount / 100)).toFixed(2);
-            setDiscountedPrice(disco)
+            if (temp[0]!==undefined) {
+                setProduct(temp[0])
+                const sale = temp[0].sale
+                setSale(sale)
+                const discount = temp[0].percent
+                const disco = (temp[0].price * (1 - discount / 100)).toFixed(2);
+                setDiscountedPrice(disco)
+            }
         }
     }, []);
 
     const handleUpdate = () => {
         props.onStateUpdate(1);
+        props.setNull();
     };
 
     return (
