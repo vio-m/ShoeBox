@@ -1,0 +1,1 @@
+export const API_URL = "https://shop-api-3d.vercel.app";
