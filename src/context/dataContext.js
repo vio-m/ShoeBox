@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios"
+import { API_URL } from '../config';
 
 
 export const DataContext = createContext();
@@ -11,17 +12,15 @@ export const DataContextProvider = (props) => {
     const [brands, setBrands] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    
 
     useEffect(() => {
         async function getData() {
             try {
-                const products_response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/product/`);
+                const products_response = await axios.get(`${API_URL}/api/product/`);
                 setProducts(products_response.data.results);
-                console.log("p", products)
-                const categories_response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/category/`);
+                const categories_response = await axios.get(`${API_URL}/api/category/`);
                 setCategories(categories_response.data.results);
-                const brands_response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/brand/`);
+                const brands_response = await axios.get(`${API_URL}/api/brand/`);
                 setBrands(brands_response.data.results);
                 setError(null);
             } catch (err) {
