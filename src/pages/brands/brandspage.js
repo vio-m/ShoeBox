@@ -34,7 +34,7 @@ export const BrandsPage = (props) => {
     useEffect(() => {
         if (data.loading===false) {
             const temp_obj = data.brands.filter(k => k.id==id);
-            setTitle(temp_obj[0].name)
+            setTitle(temp_obj[0].brand)
             setImage(temp_obj[0].image)
             setDescription(temp_obj[0].description)
             const temp_prod = data.products.filter(k => k.category==id);

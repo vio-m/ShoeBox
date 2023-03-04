@@ -21,6 +21,7 @@
     object-fit: cover;
 }
 .categorypage-header-title {
+    text-transform: uppercase;
     cursor: pointer;
     padding: 10px 0px;
 }
@@ -75,5 +76,21 @@
     background-color: #333;
     color: white;
 }
-
+#category-back-btn {
+    position: sticky;
+    width: 80%;
+    margin-top: 5rem;
+    padding: 10px 30px;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    font-weight: 900;
+    border: none;
+    bottom: 2%;
+    margin: 0 auto;
+    transition: all 0.2s ease-in-out;
+}
+#category-back-btn:hover {
+    background-color: #333;
+}
 

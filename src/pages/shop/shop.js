@@ -58,7 +58,6 @@ export const Shop = ({searchId}) => {
             setBrands(data.brands)
         }
         changeAd()
-        console.log("useEffect")
         handleParentId(searchId)
     }, [data]);
 

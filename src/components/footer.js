@@ -8,7 +8,7 @@ import Socialmedia from './socialmedia'
     return (
       <div className='footer-container'>
         <div className='footer-left'>
-            <div className='footer-logo'>HEART OF THE NORTH</div>
+            <div className='footer-logo'>SHOE BOX</div>
             <div className='footer-description'> Proud to offer the very best in women's fashion. Looking for new head-to-toe outfits to update your wardrobe? Shop our selection of women's clothing, shoes and handbags. We offer a range of sizes for every body, from petite clothing to plus-size clothing and every fit in between. When it comes to warm-weather trends, we've got you covered. 
             </div>
             <div></div>

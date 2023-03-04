@@ -27,7 +27,6 @@ function App() {
     function handleCheckoutResponse(res) {
         setCheckoutResponse(res)
     };
-    
     return (
         <div className="App">
         <DataContextProvider>                

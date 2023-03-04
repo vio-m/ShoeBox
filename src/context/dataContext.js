@@ -16,12 +16,12 @@ export const DataContextProvider = (props) => {
     useEffect(() => {
         async function getData() {
             try {
-                const products_response = await axios.get('http://localhost:8000/api/product/');
+                const products_response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/product/`);
                 setProducts(products_response.data.results);
-                //console.log("p", products)
-                const categories_response = await axios.get('http://localhost:8000/api/category/');
+                console.log("p", products)
+                const categories_response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/category/`);
                 setCategories(categories_response.data.results);
-                const brands_response = await axios.get('http://localhost:8000/api/brand/');
+                const brands_response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/brand/`);
                 setBrands(brands_response.data.results);
                 setError(null);
             } catch (err) {

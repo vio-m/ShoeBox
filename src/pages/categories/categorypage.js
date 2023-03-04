@@ -15,7 +15,10 @@ export const CategoryPage = (props) => {
     const [products, setProducts] = useState(null)
     const [showOverlay, setShowOverlay] = useState(false);
     const [overlayId, setOverlayId] = useState()
-
+    const navigate = useNavigate();
+    const navigateHome = () => {
+        navigate("/");
+    };
     const toggleOverlay = (newState) => {
         setShowOverlay(!showOverlay);
     };
@@ -27,7 +30,8 @@ export const CategoryPage = (props) => {
     useEffect(() => {
         if (data.loading===false) {
             const temp_obj = data.categories.filter(k => k.id==id);
-            setTitle(temp_obj[0].name)
+            console.log(temp_obj[0])
+            setTitle(temp_obj[0].category)
             setImage(temp_obj[0].image)
             setDescription(temp_obj[0].description)
             const temp_prod = data.products.filter(k => k.category==id);
@@ -39,8 +43,8 @@ export const CategoryPage = (props) => {
     return (
         <div className='categorypage-container'>
             <div className='categorypage-header'>
-                <div className='brandspage-header-title' >All {title}</div>
-                <img className='brandspage-header-image' src={image}></img>
+                <div className='categorypage-header-title' >All {title}</div>
+                <img className='categorypage-header-image' src={image}></img>
             </div>
 
             <div className='categorypage-content'>
@@ -56,7 +60,7 @@ export const CategoryPage = (props) => {
                 )}
             </div>
             { showOverlay && <Overlay overlayId={overlayId} onStateUpdate={toggleOverlay} /> }
-            
+            <button id='category-back-btn' onClick={() => navigateHome()}> BACK </button>
         </div>
     )
 }
